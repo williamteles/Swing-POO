@@ -86,6 +86,7 @@ public class Cadastro extends JPanel implements ActionListener {
 
         //Display the window.
         frame.setSize(400, 500);
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 
