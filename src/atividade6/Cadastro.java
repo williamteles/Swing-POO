@@ -1,11 +1,8 @@
 package atividade6;
 
-import javax.swing.AbstractButton;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JFrame;
-import javax.swing.ImageIcon;
+import javax.swing.*;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -13,8 +10,14 @@ import java.awt.event.KeyEvent;
 
 public class Cadastro extends JPanel implements ActionListener {
     protected JButton buttonSalvar, buttonFechar;
+    protected JLabel labelNome;
+    protected JTextField textFieldNome, textFieldTelefone, textFieldEndereco, textFieldNacionalidade;
 
     public Cadastro() {
+
+        labelNome = new JLabel("Nome");
+        textFieldNome = new JTextField(25);
+
         ImageIcon leftButtonIcon = createImageIcon("images/right.gif");
         ImageIcon middleButtonIcon = createImageIcon("images/middle.gif");
 
@@ -34,11 +37,12 @@ public class Cadastro extends JPanel implements ActionListener {
         buttonSalvar.addActionListener(this);
         buttonFechar.addActionListener(this);
 
-
         buttonSalvar.setToolTipText("Clique neste butão para salvar seus dados.");
         buttonFechar.setToolTipText("Clique neste butão para fechar essa tela de cadastro.");
 
         //Add Components to this container, using the default FlowLayout.
+        add(labelNome);
+        add(textFieldNome);
         add(buttonSalvar);
         add(buttonFechar);
     }
@@ -81,7 +85,7 @@ public class Cadastro extends JPanel implements ActionListener {
         frame.setContentPane(newContentPane);
 
         //Display the window.
-        frame.pack();
+        frame.setSize(400, 500);
         frame.setVisible(true);
     }
 
