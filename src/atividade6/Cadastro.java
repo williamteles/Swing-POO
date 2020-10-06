@@ -10,9 +10,12 @@ import java.awt.event.KeyEvent;
 
 public class Cadastro extends JPanel implements ActionListener {
     protected JButton buttonSalvar, buttonFechar;
-    protected JLabel labelNome,labelTelefone,labelEndereco,labelNacionalidade,labelCurso,labelSexo,labelEscolaridade;
-    protected JTextField textFieldNome, textFieldTelefone, textFieldEndereco, textFieldNacionalidade;
+    protected JLabel labelNome,labelTelefone,labelEndereco,labelNacionalidade,labelCurso,labelSexo,labelEscolaridade,labelIdade, labelMenu;
+    protected JTextField textFieldNome, textFieldTelefone, textFieldEndereco, textFieldNacionalidade, textFielIdade;
     protected JComboBox boxCurso,boxSexo, boxEscolaridade;
+    protected JMenuBar menuBar;
+    protected JMenu menu;
+    
 
     String [] curso = {"-------------------------------------------------------------------------","Analide e desenvolvimento de Sistemas","Administração","MSI"};
     String [] sexo = {"-----","homem","Mulher"};
@@ -46,6 +49,18 @@ public class Cadastro extends JPanel implements ActionListener {
         boxEscolaridade.setSelectedIndex(0);
         boxEscolaridade.addActionListener(this);
 
+        labelIdade = new JLabel("Idade");
+        textFielIdade = new JTextField(30);
+
+        menuBar = new JMenuBar();
+
+        menu = new JMenu("Fibonniro menu");
+        menu.getAccessibleContext().setAccessibleDescription("Fibboniro menu bar");
+        
+        menuBar.add(menu);
+
+
+
         ImageIcon leftButtonIcon = createImageIcon("images/right.gif");
         ImageIcon middleButtonIcon = createImageIcon("images/middle.gif");
 
@@ -70,10 +85,12 @@ public class Cadastro extends JPanel implements ActionListener {
         buttonFechar.setToolTipText("Clique neste butão para fechar essa tela de cadastro.");
         
         //Add Components to this container, using the default GridLayout.
-        GridLayout layout = new GridLayout(8,1);
+        GridLayout layout = new GridLayout(9,0);
         setLayout(layout);
         layout.setVgap(30);
         layout.setHgap(20);
+
+        
 
         add(labelNome);
         add(textFieldNome);
@@ -87,9 +104,12 @@ public class Cadastro extends JPanel implements ActionListener {
         add(labelNacionalidade);
         add(textFieldNacionalidade);
         
+        add(labelIdade);
+        add(textFielIdade);
+
         add(labelEscolaridade);
         add(boxEscolaridade);
-        
+
         add(labelCurso);
         add(boxCurso);
 
