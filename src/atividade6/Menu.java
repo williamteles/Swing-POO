@@ -35,7 +35,6 @@ class Menu {
         submenu.add(menuItem);
         menu.add(submenu);
 
-        //Build second menu in the menu bar.
         // -------------- Construindo o Segundo Menu com seus Subs Menus --------------
         menu = new JMenu("Tools");
         menu.getAccessibleContext().setAccessibleDescription("This menu does nothing");
