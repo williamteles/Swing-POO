@@ -9,10 +9,10 @@ class Menu {
         JMenu menu, submenu;
         JMenuItem menuItem;
 
-        //Create the menu bar.
+        // -------------- Criando a Barra de Menu --------------
         menuBar = new JMenuBar();
 
-        //Build the first menu.
+        // -------------- Construindo o Primeiro Menu com seus Subs Menus --------------
         menu = new JMenu("Menu");
         menu.getAccessibleContext().setAccessibleDescription("The only menu in this program that has menu items");
         menuBar.add(menu);
@@ -26,7 +26,7 @@ class Menu {
         submenu.add(menuItem);
         menu.add(submenu);
 
-        //Build second menu in the menu bar.
+        // -------------- Construindo o Segundo Menu com seus Subs Menus --------------
         menu = new JMenu("Tools");
         menu.getAccessibleContext().setAccessibleDescription("This menu does nothing");
         menuBar.add(menu);
@@ -40,6 +40,7 @@ class Menu {
         submenu.add(menuItem);
         menu.add(submenu);
 
+        // -------------- Retornando a Barra de Menu Construída --------------
         return menuBar;
     }
 }

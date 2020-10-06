@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class Cadastro extends JPanel {
     protected JButton buttonSalvar, buttonFechar;
-    protected JLabel labelNome,labelTelefone,labelEndereco,labelNacionalidade,labelCurso,labelSexo,labelEscolaridade,labelIdade;
+    protected JLabel labelNome, labelTelefone, labelEndereco, labelNacionalidade, labelCurso, labelSexo, labelEscolaridade, labelIdade;
     protected JTextField textFieldNome, textFieldTelefone, textFieldEndereco, textFieldNacionalidade, textFielIdade;
     protected JCheckBox checkBoxMasculino, checkBoxFeminino;
     protected JComboBox<String> boxCurso;
@@ -18,6 +18,7 @@ public class Cadastro extends JPanel {
 
     public Cadastro() {
 
+        // -------------- Instanciando e Setando os Componentes --------------
         labelNome = new JLabel("Nome");
         textFieldNome = new JTextField(30);
 
@@ -59,13 +60,14 @@ public class Cadastro extends JPanel {
 
         buttonSalvar.setToolTipText("Clique neste botão para salvar seus dados.");
         buttonFechar.setToolTipText("Clique neste botão para fechar essa tela de cadastro.");
-        
-        //Add Components to this container, using the GridLayout.
+
+        // -------------- Setando o Layout do JPanel --------------
         GridLayout layout = new GridLayout(9,0);
         setLayout(layout);
         layout.setVgap(30);
         layout.setHgap(20);
 
+        // -------------- Adicionando os Componentes no JPanel --------------
         add(labelNome);
         add(textFieldNome);
 
@@ -95,33 +97,29 @@ public class Cadastro extends JPanel {
         add(buttonFechar);
     }
 
-    /**
-     * Create the GUI and show it.  For thread safety,
-     * this method should be invoked from the
-     * event-dispatching thread.
-     */
+    // -------------- Método para Criar o GUI e Mostrar na Tela --------------
     private static void createAndShowGUI() {
 
-        //Create and set up the window.
+        // -------------- Criando o JFrame e Setando-o --------------
         JFrame frame = new JFrame("Cadastro");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //Create and set up the content pane.
+        // -------------- Instanciando o JPanel de Cadastro e a Classe dos Menus --------------
         Cadastro newContentPane = new Cadastro();
-        newContentPane.setOpaque(true); //content panes must be opaque
+        newContentPane.setOpaque(true);
         Menu menu = new Menu();
         frame.setJMenuBar(menu.createMenuBar());
         frame.setContentPane(newContentPane);
 
-        //Display the window.
+        // -------------- Setando Tamanho do Frame e Mostrando-o --------------
         frame.setSize(600, 500);
         frame.setResizable(false);
         frame.setVisible(true);
     }
 
     public static void main(String[] args) {
-        //Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
+
+        // -------------- Chamando Método da GUI --------------
         javax.swing.SwingUtilities.invokeLater(Cadastro::createAndShowGUI);
     }
 }

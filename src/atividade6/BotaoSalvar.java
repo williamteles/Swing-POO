@@ -14,6 +14,7 @@ public class BotaoSalvar implements ActionListener, KeyListener {
 
     public BotaoSalvar() {}
 
+    // -------------- Método para quando o Botão Salvar for Clicado --------------
     @Override
     public void actionPerformed(ActionEvent submitClicked) {
         Component frame = new JFrame();
@@ -21,24 +22,21 @@ public class BotaoSalvar implements ActionListener, KeyListener {
         System.exit(0);
     }
 
+    // -------------- Método para quando o Botão Salvar for Acionado via Tecla Enter --------------
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode()==KeyEvent.VK_ENTER){
-            System.out.println("Hello");
+            Component frame = new JFrame();
+            JOptionPane.showMessageDialog(frame , "Você enviou os dados");
+            System.exit(0);
         }
-        Component frame = new JFrame();
-        JOptionPane.showMessageDialog(frame , "Você enviou os dados");
-        System.exit(0);
     }
 
     @Override
     public void keyReleased(KeyEvent arg0) {
         // TODO Auto-generated method stub
-
     }
 
     @Override
-    public void keyTyped(KeyEvent arg0) {
-
-    }
+    public void keyTyped(KeyEvent arg0) {}
 }
