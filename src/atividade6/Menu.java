@@ -26,17 +26,36 @@ class Menu {
         submenu.add(menuItem);
         menu.add(submenu);
 
+        submenu = new JMenu("Save");
+        
+        menuItem = new JMenuItem("Save");
+        submenu.add(menuItem);
+
+        menuItem = new JMenuItem("Save as...");
+        submenu.add(menuItem);
+        menu.add(submenu);
+
         //Build second menu in the menu bar.
         menu = new JMenu("Tools");
         menu.getAccessibleContext().setAccessibleDescription("This menu does nothing");
         menuBar.add(menu);
 
+        //submenu edit
         submenu = new JMenu("Edit");
 
         menuItem = new JMenuItem("Copy");
         submenu.add(menuItem);
 
         menuItem = new JMenuItem("Paste");
+        submenu.add(menuItem);
+        menu.add(submenu);
+
+        submenu = new JMenu("View");
+
+        menuItem = new JMenuItem("search");
+        submenu.add(menuItem);
+
+        menuItem = new JMenuItem("explorer");
         submenu.add(menuItem);
         menu.add(submenu);
 
