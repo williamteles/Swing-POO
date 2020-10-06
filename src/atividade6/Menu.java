@@ -14,8 +14,7 @@ class Menu {
 
         //Build the first menu.
         menu = new JMenu("Menu");
-        menu.getAccessibleContext().setAccessibleDescription(
-                "The only menu in this program that has menu items");
+        menu.getAccessibleContext().setAccessibleDescription("The only menu in this program that has menu items");
         menuBar.add(menu);
 
         submenu = new JMenu("File");
@@ -29,8 +28,7 @@ class Menu {
 
         //Build second menu in the menu bar.
         menu = new JMenu("Tools");
-        menu.getAccessibleContext().setAccessibleDescription(
-                "This menu does nothing");
+        menu.getAccessibleContext().setAccessibleDescription("This menu does nothing");
         menuBar.add(menu);
 
         submenu = new JMenu("Edit");

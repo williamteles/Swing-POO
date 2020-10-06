@@ -3,16 +3,15 @@ package atividade6;
 import javax.swing.*;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
 
 
 public class Cadastro extends JPanel {
     protected JButton buttonSalvar, buttonFechar;
-    protected JLabel labelNome,labelTelefone,labelEndereco,labelNacionalidade,labelCurso,labelSexo,labelEscolaridade,labelIdade, labelMenu;
+    protected JLabel labelNome,labelTelefone,labelEndereco,labelNacionalidade,labelCurso,labelSexo,labelEscolaridade,labelIdade;
     protected JTextField textFieldNome, textFieldTelefone, textFieldEndereco, textFieldNacionalidade, textFielIdade;
-    protected JComboBox boxCurso, boxSexo, boxEscolaridade;
-    protected JMenuBar menuBar;
-    protected JMenu menu;
+    protected JComboBox<String> boxCurso;
+    protected JComboBox<String> boxSexo;
+    protected JComboBox<String> boxEscolaridade;
 
     protected String[] cursos = {"","Análise e Desenvolvimento de Sistemas","Administração","Manutenção e Suporte em Informática"};
     protected String[] sexo = {"","Homem","Mulher"};
@@ -33,26 +32,19 @@ public class Cadastro extends JPanel {
         textFieldNacionalidade = new JTextField(25);
 
         labelCurso = new JLabel("Seu Curso:");
-        boxCurso = new JComboBox(cursos);
+        boxCurso = new JComboBox<>(cursos);
         boxCurso.setSelectedIndex(0);
         
         labelSexo = new JLabel("Seu Sexo:");
-        boxSexo = new JComboBox(sexo);
+        boxSexo = new JComboBox<>(sexo);
         boxSexo.setSelectedIndex(0);
 
         labelEscolaridade = new JLabel("Escolaridade");
-        boxEscolaridade = new JComboBox(escolaridades);
+        boxEscolaridade = new JComboBox<>(escolaridades);
         boxEscolaridade.setSelectedIndex(0);
 
         labelIdade = new JLabel("Idade");
         textFielIdade = new JTextField(30);
-
-        menuBar = new JMenuBar();
-
-        menu = new JMenu("Fibonniro menu");
-        menu.getAccessibleContext().setAccessibleDescription("Fibboniro menu bar");
-
-        menuBar.add(menu);
 
         buttonSalvar = new JButton("Salvar");
         buttonSalvar.setVerticalTextPosition(AbstractButton.CENTER);
@@ -130,10 +122,6 @@ public class Cadastro extends JPanel {
     public static void main(String[] args) {
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
+        javax.swing.SwingUtilities.invokeLater(Cadastro::createAndShowGUI);
     }
 }
