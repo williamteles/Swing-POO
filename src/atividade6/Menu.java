@@ -1,0 +1,47 @@
+package atividade6;
+
+import javax.swing.*;
+
+class Menu {
+
+    public JMenuBar createMenuBar() {
+        JMenuBar menuBar;
+        JMenu menu, submenu;
+        JMenuItem menuItem;
+
+        //Create the menu bar.
+        menuBar = new JMenuBar();
+
+        //Build the first menu.
+        menu = new JMenu("Menu");
+        menu.getAccessibleContext().setAccessibleDescription(
+                "The only menu in this program that has menu items");
+        menuBar.add(menu);
+
+        submenu = new JMenu("File");
+
+        menuItem = new JMenuItem("Import");
+        submenu.add(menuItem);
+
+        menuItem = new JMenuItem("Export");
+        submenu.add(menuItem);
+        menu.add(submenu);
+
+        //Build second menu in the menu bar.
+        menu = new JMenu("Tools");
+        menu.getAccessibleContext().setAccessibleDescription(
+                "This menu does nothing");
+        menuBar.add(menu);
+
+        submenu = new JMenu("Edit");
+
+        menuItem = new JMenuItem("Copy");
+        submenu.add(menuItem);
+
+        menuItem = new JMenuItem("Paste");
+        submenu.add(menuItem);
+        menu.add(submenu);
+
+        return menuBar;
+    }
+}

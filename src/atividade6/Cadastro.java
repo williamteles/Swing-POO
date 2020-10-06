@@ -3,23 +3,21 @@ package atividade6;
 import javax.swing.*;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 
-public class Cadastro extends JPanel implements ActionListener {
+public class Cadastro extends JPanel {
     protected JButton buttonSalvar, buttonFechar;
     protected JLabel labelNome,labelTelefone,labelEndereco,labelNacionalidade,labelCurso,labelSexo,labelEscolaridade,labelIdade, labelMenu;
     protected JTextField textFieldNome, textFieldTelefone, textFieldEndereco, textFieldNacionalidade, textFielIdade;
-    protected JComboBox boxCurso,boxSexo, boxEscolaridade;
+    protected JComboBox boxCurso, boxSexo, boxEscolaridade;
     protected JMenuBar menuBar;
     protected JMenu menu;
-    
 
-    String [] curso = {"-------------------------------------------------------------------------","Analide e desenvolvimento de Sistemas","Administração","MSI"};
-    String [] sexo = {"-----","homem","Mulher"};
-    String [] escolaridade = {"-----------------------", "Ensino fundamental", "Ensino fundamental", "Ensino médio", "Ensino médio incompleto", "Ensino superior", "Ensino superior incompleto", "Mestrado", "Doutorado" };
+    protected String[] cursos = {"","Análise e Desenvolvimento de Sistemas","Administração","Manutenção e Suporte em Informática"};
+    protected String[] sexo = {"","Homem","Mulher"};
+    protected String[] escolaridades = {"", "Ensino Fundamental", "Ensino Médio", "Ensino Médio Incompleto", "Ensino Superior", "Ensino Superior Incompleto", "Mestrado", "Doutorado" };
+
     public Cadastro() {
 
         labelNome = new JLabel("Nome");
@@ -34,20 +32,17 @@ public class Cadastro extends JPanel implements ActionListener {
         labelNacionalidade = new JLabel("Nacionalidade");
         textFieldNacionalidade = new JTextField(25);
 
-        labelCurso = new JLabel("seu Curso:");
-        boxCurso = new JComboBox(curso);
+        labelCurso = new JLabel("Seu Curso:");
+        boxCurso = new JComboBox(cursos);
         boxCurso.setSelectedIndex(0);
-        boxCurso.addActionListener(this);
         
-        labelSexo = new JLabel("Seu sexo:");
+        labelSexo = new JLabel("Seu Sexo:");
         boxSexo = new JComboBox(sexo);
         boxSexo.setSelectedIndex(0);
-        boxSexo.addActionListener(this);
 
         labelEscolaridade = new JLabel("Escolaridade");
-        boxEscolaridade = new JComboBox(escolaridade);
+        boxEscolaridade = new JComboBox(escolaridades);
         boxEscolaridade.setSelectedIndex(0);
-        boxEscolaridade.addActionListener(this);
 
         labelIdade = new JLabel("Idade");
         textFielIdade = new JTextField(30);
@@ -56,41 +51,29 @@ public class Cadastro extends JPanel implements ActionListener {
 
         menu = new JMenu("Fibonniro menu");
         menu.getAccessibleContext().setAccessibleDescription("Fibboniro menu bar");
-        
+
         menuBar.add(menu);
-
-
-
-        ImageIcon leftButtonIcon = createImageIcon("images/right.gif");
-        ImageIcon middleButtonIcon = createImageIcon("images/middle.gif");
 
         buttonSalvar = new JButton("Salvar");
         buttonSalvar.setVerticalTextPosition(AbstractButton.CENTER);
-        buttonSalvar.setHorizontalTextPosition(AbstractButton.LEADING); //aka LEFT, for left-to-right locales
-        buttonSalvar.setMnemonic(KeyEvent.VK_D);
-        buttonSalvar.setActionCommand("salvar");
+        buttonSalvar.setHorizontalTextPosition(AbstractButton.LEADING);
+        buttonSalvar.addActionListener(new BotaoSalvar());
+        buttonSalvar.addKeyListener(new BotaoSalvar());
 
         buttonFechar = new JButton("Fechar");
         buttonFechar.setVerticalTextPosition(AbstractButton.CENTER);
         buttonFechar.setHorizontalTextPosition(AbstractButton.LEADING);
-        buttonFechar.setMnemonic(KeyEvent.VK_M);
-        buttonFechar.setActionCommand("fechar");
-        
+        buttonFechar.addActionListener(new BotaoFechar());
+        buttonFechar.addKeyListener(new BotaoFechar());
 
-        //Listen for actions on buttons 1 and 3.
-        buttonSalvar.addActionListener(this);
-        buttonFechar.addActionListener(this);
-
-        buttonSalvar.setToolTipText("Clique neste butão para salvar seus dados.");
-        buttonFechar.setToolTipText("Clique neste butão para fechar essa tela de cadastro.");
+        buttonSalvar.setToolTipText("Clique neste botão para salvar seus dados.");
+        buttonFechar.setToolTipText("Clique neste botão para fechar essa tela de cadastro.");
         
         //Add Components to this container, using the GridLayout.
         GridLayout layout = new GridLayout(9,0);
         setLayout(layout);
         layout.setVgap(30);
         layout.setHgap(20);
-
-        
 
         add(labelNome);
         add(textFieldNome);
@@ -120,28 +103,6 @@ public class Cadastro extends JPanel implements ActionListener {
         add(buttonFechar);
     }
 
-    public void actionPerformed(ActionEvent e) {
-
-        if ("salvar".equals(e.getActionCommand())) {
-            buttonFechar.setEnabled(false);
-            buttonSalvar.setEnabled(false);
-        } else {
-            buttonFechar.setEnabled(true);
-            buttonSalvar.setEnabled(true);
-        }
-    }
-
-    /** Returns an ImageIcon, or null if the path was invalid. */
-    protected static ImageIcon createImageIcon(String path) {
-        java.net.URL imgURL = Cadastro.class.getResource(path);
-        if (imgURL != null) {
-            return new ImageIcon(imgURL);
-        } else {
-            System.err.println("Couldn't find file: " + path);
-            return null;
-        }
-    }
-
     /**
      * Create the GUI and show it.  For thread safety,
      * this method should be invoked from the
@@ -161,7 +122,7 @@ public class Cadastro extends JPanel implements ActionListener {
         frame.setContentPane(newContentPane);
 
         //Display the window.
-        frame.setSize(400, 500);
+        frame.setSize(600, 500);
         frame.setResizable(false);
         frame.setVisible(true);
     }
@@ -174,50 +135,5 @@ public class Cadastro extends JPanel implements ActionListener {
                 createAndShowGUI();
             }
         });
-    }
-}
-class Menu {
-    JTextArea output;
-    JScrollPane scrollPane;
-
-    public JMenuBar createMenuBar() {
-        JMenuBar menuBar;
-        JMenu menu, submenu;
-        JMenuItem menuItem;
-        
-        //Create the menu bar.
-        menuBar = new JMenuBar();
-
-        //Build the first menu.
-        menu = new JMenu("Menu");
-        menu.getAccessibleContext().setAccessibleDescription(
-                "The only menu in this program that has menu items");
-        menuBar.add(menu);
-
-        submenu = new JMenu("File");
-
-        menuItem = new JMenuItem("Import");
-        submenu.add(menuItem);
-
-        menuItem = new JMenuItem("Export");
-        submenu.add(menuItem);
-        menu.add(submenu);
-
-        //Build second menu in the menu bar.
-        menu = new JMenu("Tools");
-        menu.getAccessibleContext().setAccessibleDescription(
-                "This menu does nothing");
-        menuBar.add(menu);
-
-        submenu = new JMenu("Edit");
-
-        menuItem = new JMenuItem("Copy");
-        submenu.add(menuItem);
-
-        menuItem = new JMenuItem("Paste");
-        submenu.add(menuItem);
-        menu.add(submenu);
-
-        return menuBar;
     }
 }
