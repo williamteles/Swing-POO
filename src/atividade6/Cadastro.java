@@ -9,12 +9,11 @@ public class Cadastro extends JPanel {
     protected JButton buttonSalvar, buttonFechar;
     protected JLabel labelNome,labelTelefone,labelEndereco,labelNacionalidade,labelCurso,labelSexo,labelEscolaridade,labelIdade;
     protected JTextField textFieldNome, textFieldTelefone, textFieldEndereco, textFieldNacionalidade, textFielIdade;
+    protected JCheckBox checkBoxMasculino, checkBoxFeminino;
     protected JComboBox<String> boxCurso;
-    protected JComboBox<String> boxSexo;
     protected JComboBox<String> boxEscolaridade;
 
     protected String[] cursos = {"","Análise e Desenvolvimento de Sistemas","Administração","Manutenção e Suporte em Informática"};
-    protected String[] sexo = {"","Homem","Mulher"};
     protected String[] escolaridades = {"", "Ensino Fundamental", "Ensino Médio", "Ensino Médio Incompleto", "Ensino Superior", "Ensino Superior Incompleto", "Mestrado", "Doutorado" };
 
     public Cadastro() {
@@ -36,8 +35,8 @@ public class Cadastro extends JPanel {
         boxCurso.setSelectedIndex(0);
         
         labelSexo = new JLabel("Seu Sexo:");
-        boxSexo = new JComboBox<>(sexo);
-        boxSexo.setSelectedIndex(0);
+        checkBoxMasculino = new JCheckBox("Masculino");
+        checkBoxFeminino = new JCheckBox("Feminino");
 
         labelEscolaridade = new JLabel("Escolaridade");
         boxEscolaridade = new JComboBox<>(escolaridades);
@@ -89,7 +88,8 @@ public class Cadastro extends JPanel {
         add(boxCurso);
 
         add(labelSexo);
-        add(boxSexo);
+        add(checkBoxMasculino);
+        add(checkBoxFeminino);
 
         add(buttonSalvar);
         add(buttonFechar);
