@@ -14,47 +14,45 @@ class Menu {
 
         // -------------- Construindo o Primeiro Menu com seus Subs Menus --------------
         menu = new JMenu("Menu");
-        menu.getAccessibleContext().setAccessibleDescription("The only menu in this program that has menu items");
         menuBar.add(menu);
 
-        submenu = new JMenu("File");
+        submenu = new JMenu("Arquivo");
 
-        menuItem = new JMenuItem("Import");
+        menuItem = new JMenuItem("Importar");
         submenu.add(menuItem);
 
-        menuItem = new JMenuItem("Export");
+        menuItem = new JMenuItem("Exportar");
         submenu.add(menuItem);
         menu.add(submenu);
 
-        submenu = new JMenu("Save");
+        submenu = new JMenu("Salvar");
 
-        menuItem = new JMenuItem("Save");
+        menuItem = new JMenuItem("Salvar");
         submenu.add(menuItem);
 
-        menuItem = new JMenuItem("Save as...");
+        menuItem = new JMenuItem("Salvar como...");
         submenu.add(menuItem);
         menu.add(submenu);
 
         // -------------- Construindo o Segundo Menu com seus Subs Menus --------------
-        menu = new JMenu("Tools");
-        menu.getAccessibleContext().setAccessibleDescription("This menu does nothing");
+        menu = new JMenu("Ferramentas");
         menuBar.add(menu);
 
-        submenu = new JMenu("Edit");
+        submenu = new JMenu("Editar");
 
-        menuItem = new JMenuItem("Copy");
+        menuItem = new JMenuItem("Copiar");
         submenu.add(menuItem);
 
-        menuItem = new JMenuItem("Paste");
+        menuItem = new JMenuItem("Colar");
         submenu.add(menuItem);
         menu.add(submenu);
 
-        submenu = new JMenu("View");
+        submenu = new JMenu("Ajuda");
 
-        menuItem = new JMenuItem("search");
+        menuItem = new JMenuItem("Ajuda");
         submenu.add(menuItem);
 
-        menuItem = new JMenuItem("explorer");
+        menuItem = new JMenuItem("Sobre");
         submenu.add(menuItem);
         menu.add(submenu);
 
