@@ -10,13 +10,35 @@ import java.awt.event.KeyEvent;
 
 public class Cadastro extends JPanel implements ActionListener {
     protected JButton buttonSalvar, buttonFechar;
-    protected JLabel labelNome;
+    protected JLabel labelNome,labelTelefone,labelEndereco,labelNacionalidade,labelCurso,labelSexo;
     protected JTextField textFieldNome, textFieldTelefone, textFieldEndereco, textFieldNacionalidade;
+    protected JComboBox boxCurso,boxSexo;
 
+    String [] curso = {"-------------------------------------------------------------------------","Analide e desenvolvimento de Sistemas","Administração","MSI"};
+    String [] sexo = {"-----","homem","Mulher"};
     public Cadastro() {
 
         labelNome = new JLabel("Nome");
-        textFieldNome = new JTextField(25);
+        textFieldNome = new JTextField(30);
+
+        labelTelefone = new JLabel("Telefone");
+        textFieldTelefone = new JTextField(29);
+
+        labelEndereco = new JLabel("Endereço");
+        textFieldEndereco = new JTextField(28);
+
+        labelNacionalidade = new JLabel("Nacionalidade");
+        textFieldNacionalidade = new JTextField(25);
+
+        labelCurso = new JLabel("seu Curso:");
+        boxCurso = new JComboBox(curso);
+        boxCurso.setSelectedIndex(0);
+        boxCurso.addActionListener(this);
+        
+        labelSexo = new JLabel("Seu sexo:");
+        boxSexo = new JComboBox(sexo);
+        boxSexo.setSelectedIndex(0);
+        boxSexo.addActionListener(this);
 
         ImageIcon leftButtonIcon = createImageIcon("images/right.gif");
         ImageIcon middleButtonIcon = createImageIcon("images/middle.gif");
@@ -32,6 +54,7 @@ public class Cadastro extends JPanel implements ActionListener {
         buttonFechar.setHorizontalTextPosition(AbstractButton.LEADING);
         buttonFechar.setMnemonic(KeyEvent.VK_M);
         buttonFechar.setActionCommand("fechar");
+        
 
         //Listen for actions on buttons 1 and 3.
         buttonSalvar.addActionListener(this);
@@ -43,11 +66,28 @@ public class Cadastro extends JPanel implements ActionListener {
         //Add Components to this container, using the default FlowLayout.
         add(labelNome);
         add(textFieldNome);
+
+        add(labelTelefone);
+        add(textFieldTelefone);
+
+        add(labelEndereco);
+        add(textFieldEndereco);
+
+        add(labelNacionalidade);
+        add(textFieldNacionalidade);
+
+        add(labelCurso);
+        add(boxCurso);
+
+        add(labelSexo);
+        add(boxSexo);
+
         add(buttonSalvar);
         add(buttonFechar);
     }
 
     public void actionPerformed(ActionEvent e) {
+
         if ("salvar".equals(e.getActionCommand())) {
             buttonFechar.setEnabled(false);
             buttonSalvar.setEnabled(false);
