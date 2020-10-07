@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class Cadastro extends JPanel {
     protected JButton buttonSalvar, buttonFechar;
-    protected JLabel labelNome, labelTelefone, labelEndereco, labelNacionalidade, labelCurso, labelSexo, labelEscolaridade, labelIdade;
+    protected JLabel labelNome, labelTelefone, labelEndereco, labelNacionalidade, labelCurso, labelSexo, labelEscolaridade, labelIdade, labelNull;
     protected JTextField textFieldNome, textFieldTelefone, textFieldEndereco, textFieldNacionalidade, textFielIdade;
     protected JCheckBox checkBoxMasculino, checkBoxFeminino;
     protected JComboBox<String> boxCurso;
@@ -46,6 +46,8 @@ public class Cadastro extends JPanel {
         labelIdade = new JLabel("Idade");
         textFielIdade = new JTextField(30);
 
+        labelNull = new JLabel("");
+
         buttonSalvar = new JButton("Salvar");
         buttonSalvar.setVerticalTextPosition(AbstractButton.CENTER);
         buttonSalvar.setHorizontalTextPosition(AbstractButton.LEADING);
@@ -62,10 +64,12 @@ public class Cadastro extends JPanel {
         buttonFechar.setToolTipText("Clique neste botão para fechar essa tela de cadastro.");
 
         // -------------- Setando o Layout do JPanel --------------
-        GridLayout layout = new GridLayout(9,0);
+        GridLayout layout = new GridLayout(10,0);
         setLayout(layout);
         layout.setVgap(30);
         layout.setHgap(20);
+
+        
 
         // -------------- Adicionando os Componentes no JPanel --------------
         add(labelNome);
@@ -90,8 +94,11 @@ public class Cadastro extends JPanel {
         add(boxCurso);
 
         add(labelSexo);
+        
         add(checkBoxMasculino);
+        add(labelNull);
         add(checkBoxFeminino);
+        
 
         add(buttonSalvar);
         add(buttonFechar);
