@@ -18,7 +18,7 @@ public class BotaoSalvar implements ActionListener, KeyListener {
     @Override
     public void actionPerformed(ActionEvent submitClicked) {
         Component frame = new JFrame();
-        JOptionPane.showMessageDialog(frame , "Você enviou os dados");
+        JOptionPane.showMessageDialog(frame , "Dados Cadastrados.");
         System.exit(0);
     }
 
@@ -27,7 +27,7 @@ public class BotaoSalvar implements ActionListener, KeyListener {
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode()==KeyEvent.VK_ENTER){
             Component frame = new JFrame();
-            JOptionPane.showMessageDialog(frame , "Você enviou os dados");
+            JOptionPane.showMessageDialog(frame , "Dados Cadastrados.");
             System.exit(0);
         }
     }

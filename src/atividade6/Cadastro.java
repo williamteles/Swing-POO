@@ -10,6 +10,7 @@ public class Cadastro extends JPanel {
     protected JLabel labelNome, labelTelefone, labelEndereco, labelNacionalidade, labelCurso, labelSexo, labelEscolaridade, labelIdade, labelNull;
     protected JTextField textFieldNome, textFieldTelefone, textFieldEndereco, textFieldNacionalidade, textFielIdade;
     protected JCheckBox checkBoxMasculino, checkBoxFeminino;
+    protected ButtonGroup checkBoxGroup;
     protected JComboBox<String> boxCurso;
     protected JComboBox<String> boxEscolaridade;
 
@@ -19,31 +20,43 @@ public class Cadastro extends JPanel {
     public Cadastro() {
 
         // -------------- Instanciando e Setando os Componentes --------------
-        labelNome = new JLabel("Nome");
+        labelNome = new JLabel("Nome: ");
+        labelNome.setHorizontalAlignment(AbstractButton.CENTER);
         textFieldNome = new JTextField(30);
 
-        labelTelefone = new JLabel("Telefone");
+        labelTelefone = new JLabel("Telefone: ");
+        labelTelefone.setHorizontalAlignment(AbstractButton.CENTER);
         textFieldTelefone = new JTextField(29);
 
-        labelEndereco = new JLabel("Endereço");
+        labelEndereco = new JLabel("Endereço: ");
+        labelEndereco.setHorizontalAlignment(AbstractButton.CENTER);
         textFieldEndereco = new JTextField(28);
 
-        labelNacionalidade = new JLabel("Nacionalidade");
+        labelNacionalidade = new JLabel("Nacionalidade: ");
+        labelNacionalidade.setHorizontalAlignment(AbstractButton.CENTER);
         textFieldNacionalidade = new JTextField(25);
 
-        labelCurso = new JLabel("Seu Curso:");
+        labelCurso = new JLabel("Seu Curso: ");
+        labelCurso.setHorizontalAlignment(AbstractButton.CENTER);
         boxCurso = new JComboBox<>(cursos);
         boxCurso.setSelectedIndex(0);
-        
-        labelSexo = new JLabel("Seu Sexo:");
+
+        labelSexo = new JLabel("Seu Sexo: ");
+        labelSexo.setHorizontalAlignment(AbstractButton.CENTER);
         checkBoxMasculino = new JCheckBox("Masculino");
         checkBoxFeminino = new JCheckBox("Feminino");
 
-        labelEscolaridade = new JLabel("Escolaridade");
+        checkBoxGroup = new ButtonGroup();
+        checkBoxGroup.add(checkBoxMasculino);
+        checkBoxGroup.add(checkBoxFeminino);
+
+        labelEscolaridade = new JLabel("Escolaridade: ");
+        labelEscolaridade.setHorizontalAlignment(AbstractButton.CENTER);
         boxEscolaridade = new JComboBox<>(escolaridades);
         boxEscolaridade.setSelectedIndex(0);
 
-        labelIdade = new JLabel("Idade");
+        labelIdade = new JLabel("Idade: ");
+        labelIdade.setHorizontalAlignment(AbstractButton.CENTER);
         textFielIdade = new JTextField(30);
 
         labelNull = new JLabel("");
@@ -69,8 +82,6 @@ public class Cadastro extends JPanel {
         layout.setVgap(30);
         layout.setHgap(20);
 
-        
-
         // -------------- Adicionando os Componentes no JPanel --------------
         add(labelNome);
         add(textFieldNome);
@@ -83,7 +94,7 @@ public class Cadastro extends JPanel {
 
         add(labelNacionalidade);
         add(textFieldNacionalidade);
-        
+
         add(labelIdade);
         add(textFielIdade);
 
@@ -94,11 +105,9 @@ public class Cadastro extends JPanel {
         add(boxCurso);
 
         add(labelSexo);
-        
         add(checkBoxMasculino);
         add(labelNull);
         add(checkBoxFeminino);
-        
 
         add(buttonSalvar);
         add(buttonFechar);
@@ -119,7 +128,7 @@ public class Cadastro extends JPanel {
         frame.setContentPane(newContentPane);
 
         // -------------- Setando Tamanho do Frame e Mostrando-o --------------
-        frame.setSize(600, 500);
+        frame.setSize(550, 600);
         frame.setResizable(false);
         frame.setVisible(true);
     }
